@@ -1,0 +1,27 @@
+[versions]
+kotlin = "2.1.20"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+metro = "1.0.0-SNAPSHOT"
+dagger = "2.56.1"
+anvil = "2.5.1"
+javax = "1"
+truth = "1.4.4"
+
+[libraries]
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+metro-runtime = { module = "dev.zacsweers.metro:runtime-jvm", version.ref = "metro" }
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
+anvil-annotations = { group = "com.squareup.anvil", name = "annotations", version.ref = "anvil" }
+anvil-annotations-optional = { group = "com.squareup.anvil", name = "annotations-optional", version.ref = "anvil" }
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref="kotlin" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
+anvil = { id = "com.squareup.anvil", version.ref = "anvil" }
