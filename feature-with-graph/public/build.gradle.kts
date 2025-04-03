@@ -1,10 +1,8 @@
 plugins {
   alias(libs.plugins.kotlin.jvm)
-  alias(libs.plugins.anvil)
+  id("mad.di")
 }
 
 dependencies {
-  implementation(libs.anvil.annotations)
-  implementation(libs.anvil.annotations.optional)
   implementation(project(":scopes:public"))
 }

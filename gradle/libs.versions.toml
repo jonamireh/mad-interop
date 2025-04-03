@@ -18,10 +18,11 @@ anvil-annotations-optional = { group = "com.squareup.anvil", name = "annotations
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref="kotlin" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+metro-gradle-plugin = { module = "dev.zacsweers.metro:gradle-plugin", version.ref = "metro" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
 anvil = { id = "com.squareup.anvil", version.ref = "anvil" }
