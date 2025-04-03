@@ -5,4 +5,5 @@ plugins {
 dependencies {
   api(libs.javax.inject)
   api(libs.kotlin.reflect)
+  api(libs.metro.runtime)
 }

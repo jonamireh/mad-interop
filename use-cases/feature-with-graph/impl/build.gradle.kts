@@ -5,5 +5,5 @@ plugins {
 
 dependencies {
   api(project(":scopes:public"))
-  api(project(":feature-with-graph:public"))
+  api(project(":use-cases:feature-with-graph:public"))
 }

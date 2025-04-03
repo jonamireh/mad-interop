@@ -30,6 +30,8 @@ dependencyResolutionManagement {
 rootProject.name = "mad-interop"
 include(":app")
 include(":scopes:public")
-include(":feature-with-graph:public")
-include(":feature-with-graph:impl")
+include(":use-cases:feature-with-graph:public")
+include(":use-cases:feature-with-graph:impl")
+include(":use-cases:contributes-multibinding:impl")
+include(":use-cases:contributes-multibinding:public")
 include(":root-ui:public")
