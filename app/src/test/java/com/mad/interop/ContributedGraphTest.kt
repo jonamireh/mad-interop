@@ -1,7 +1,7 @@
 package com.mad.interop
 
 import com.google.common.truth.Truth.assertThat
-import com.mad.interop.root.ui.FeatureLoader
+import com.mad.feature.graph.FeatureEntryPointProvider
 import com.mad.interop.scopes.GraphHolder
 import com.mad.interop.scopes.attemptDaggerChildComponentCreation
 import com.mad.interop.scopes.createGraphInterop
@@ -34,8 +34,11 @@ class ContributedGraphTest {
       GraphHolder.appGraph!!
     )
 
-    // Referencing FeatureLoader in the root-ui/public to create ContributedFeatureGraph
-    assertThat(FeatureLoader.loadFirstFeature())
-      .isEqualTo("Contributed Feature Text")
+    // Referencing only types in feature-with-graph/public to create ContributedFeatureGraph
+    val contributedGraph = GraphHolder.loggedInGraph<FeatureEntryPointProvider>()
+      .featureEntryPoint()
+      .startFeature()
+
+    assertThat(contributedGraph).isEqualTo("Contributed Feature Text")
   }
 }
