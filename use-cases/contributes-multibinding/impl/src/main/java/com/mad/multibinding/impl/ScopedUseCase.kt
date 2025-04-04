@@ -10,7 +10,8 @@ import com.squareup.anvil.annotations.optional.ForScope
 import com.squareup.anvil.annotations.optional.SingleIn
 import javax.inject.Inject
 
-@ForScope(AppScope::class)
+// Disabling for now until use case is supported by Metro
+// @ForScope(AppScope::class)
 @SingleIn(AppScope::class)
 @ContributesMultibinding(AppScope::class, boundType = Scoped::class)
 @ContributesBinding(

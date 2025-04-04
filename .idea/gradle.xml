@@ -25,14 +25,15 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
-            <option value="$PROJECT_DIR$/root-ui" />
-            <option value="$PROJECT_DIR$/root-ui/public" />
             <option value="$PROJECT_DIR$/scopes" />
             <option value="$PROJECT_DIR$/scopes/public" />
             <option value="$PROJECT_DIR$/use-cases" />
             <option value="$PROJECT_DIR$/use-cases/contributes-multibinding" />
             <option value="$PROJECT_DIR$/use-cases/contributes-multibinding/impl" />
             <option value="$PROJECT_DIR$/use-cases/contributes-multibinding/public" />
+            <option value="$PROJECT_DIR$/use-cases/dagger-generated-factory" />
+            <option value="$PROJECT_DIR$/use-cases/dagger-generated-factory/impl" />
+            <option value="$PROJECT_DIR$/use-cases/dagger-generated-factory/public" />
             <option value="$PROJECT_DIR$/use-cases/feature-with-graph" />
             <option value="$PROJECT_DIR$/use-cases/feature-with-graph/impl" />
             <option value="$PROJECT_DIR$/use-cases/feature-with-graph/public" />

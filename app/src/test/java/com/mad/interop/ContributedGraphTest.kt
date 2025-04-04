@@ -1,6 +1,7 @@
 package com.mad.interop
 
 import com.google.common.truth.Truth.assertThat
+import com.mad.dagger.factory.impl.MyJavaTypeAccessor
 import com.mad.feature.graph.FeatureEntryPointProvider
 import com.mad.interop.scopes.GraphHolder
 import com.mad.interop.scopes.attemptDaggerChildComponentCreation
@@ -40,5 +41,14 @@ class ContributedGraphTest {
       .startFeature()
 
     assertThat(contributedGraph).isEqualTo("Contributed Feature Text")
+  }
+
+  @Test
+  fun `dagger generated factory's can be used`() {
+    val appGraph = createGraphInterop<AppGraph>()
+    val javaTypeAccessor = appGraph as MyJavaTypeAccessor
+
+    assertThat(javaTypeAccessor.myJavaType)
+      .isEqualTo(javaTypeAccessor.myJavaTypeInjector.myJavaType)
   }
 }

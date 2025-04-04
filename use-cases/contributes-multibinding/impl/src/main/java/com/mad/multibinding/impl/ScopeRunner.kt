@@ -9,7 +9,9 @@ import javax.inject.Inject
 
 @SingleIn(AppScope::class)
 class AppScopeScopeRunner @Inject constructor(
-  @ForScope(AppScope::class) val scopedType: Set<@JvmSuppressWildcards Scoped>
+  // Removing for now until use case is supported by Metro
+  // @ForScope(AppScope::class)
+  val scopedType: Set<@JvmSuppressWildcards Scoped>
 )
 
 @ContributesTo(AppScope::class)
