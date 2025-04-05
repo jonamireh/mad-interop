@@ -1,6 +1,7 @@
 package com.mad.interop
 
 import com.google.common.truth.Truth.assertThat
+import com.mad.contributed.module.MyModuleProvidedTypeAccessor
 import com.mad.dagger.factory.impl.MyJavaTypeAccessor
 import com.mad.feature.graph.FeatureEntryPointProvider
 import com.mad.inject.replaced.impl.ReplacementBindingAccessor
@@ -56,5 +57,11 @@ class ContributedGraphTest {
   fun `replaced binding's real type can be injected`() {
     val appGraph = createGraphInterop<AppGraph>() as ReplacementBindingAccessor
     assertThat(appGraph.replacementBinding().text()).isEqualTo("Original Text Replaced")
+  }
+
+  @Test
+  fun `modules can be used in dagger and metro`() {
+    val appGraph = createGraphInterop<AppGraph>() as MyModuleProvidedTypeAccessor
+    assertThat(appGraph.myModuleProvidedType()).isEqualTo(appGraph.realMyModuleProvidedType())
   }
 }
