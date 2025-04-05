@@ -1,12 +1,26 @@
-Metro <-> Anvil+Dagger Interop Example
+# Metro ↔ Anvil+Dagger Interop Use Cases
 
-The goal of this project is to demonstrate how several "use cases" can be supported by both a Metro and Anvil+Dagger configuration. Refactoring to these common use cases supported by both configurations allows migrations to happen more gradually instead of in a single large change. The project has a DiConventionPlugin which allows the build to toggle using "AnvilDagger" or "Metro" as the di implementation for the entire project.
+## Overview
+
+This project demonstrates how several dependency injection "use cases" can be supported by both Metro and Anvil+Dagger configurations. By refactoring to these common use cases, migrations between DI frameworks can happen gradually rather than in a single large change.
+
+The project includes a `DiConventionPlugin` which allows toggling between "AnvilDagger" or "Metro" as the DI implementation for the entire project.
+
+## Use Cases
+
+This project showcases several interoperability patterns:
+
+- **Feature with Graph** - Creating a feature-specific dependency graph
+- **Multibinding Contributions** - Contributing to multibinding collections
+- **Dagger Generated Factory** - Using Dagger's generated factory classes
+- **Inject Replaced Contribution** - Replacing bindings at runtime
 
 ## Running Tests
 
-Test's can be run using:
+Tests can be run with either DI implementation:
 
 ```shell
 ./gradlew :app:test -Pmad.di="AnvilDagger"
+
 ./gradlew :app:test -Pmad.di="Metro"
 ```
