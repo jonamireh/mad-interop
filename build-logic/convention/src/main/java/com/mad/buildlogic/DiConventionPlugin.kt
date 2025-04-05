@@ -9,13 +9,7 @@ import org.gradle.kotlin.dsl.getByType
 
 class DiConventionPlugin : Plugin<Project> {
   override fun apply(target: Project): Unit = target.run {
-    val diExtension = extensions.create("di", DiConventionExtension::class.java)
-
-    val diImplementation = if (diExtension.daggerOnly) {
-      "DaggerOnly"
-    } else {
-      findProperty("mad.di") as? String ?: "AnvilDagger"
-    }
+    val diImplementation = findProperty("mad.di") as? String ?: "AnvilDagger"
     val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
     // Allow convention plugin to override diImplementation
@@ -48,20 +42,6 @@ class DiConventionPlugin : Plugin<Project> {
         metro.interop.includeDagger()
         metro.interop.includeAnvil(includeDaggerAnvil = true, includeKotlinInjectAnvil = false)
       }
-      // This configuration is only intended for use by modules testing dagger interop features.
-      "DaggerOnly" -> {
-        plugins.apply(libs.findPlugin("kotlin-kapt").get().get().pluginId)
-
-        dependencies {
-          "implementation"(libs.findLibrary("dagger").get())
-          "kapt"(libs.findLibrary("dagger-compiler").get())
-        }
-      }
-      else -> error("Unsupported value for property 'mad.di': $diImplementation")
     }
   }
-}
-
-open class DiConventionExtension {
-  var daggerOnly: Boolean = false
 }

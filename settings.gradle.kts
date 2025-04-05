@@ -1,13 +1,7 @@
 pluginManagement {
   includeBuild("build-logic")
   repositories {
-    google {
-      content {
-        includeGroupByRegex("com\\.android.*")
-        includeGroupByRegex("com\\.google.*")
-        includeGroupByRegex("androidx.*")
-      }
-    }
+    google()
     mavenCentral()
     mavenLocal()
     //https://oss.sonatype.org/content/repositories/snapshots/dev/zacsweers/metro/

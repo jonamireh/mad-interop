@@ -1,12 +1,10 @@
 plugins {
   alias(libs.plugins.kotlin.jvm)
-  id("mad.di")
-}
-
-di {
-  daggerOnly = true
 }
 
 dependencies {
+  annotationProcessor(libs.dagger.compiler)
+  implementation(libs.dagger)
+  implementation(libs.anvil.annotations.optional)
   implementation(project(":scopes:public"))
 }
