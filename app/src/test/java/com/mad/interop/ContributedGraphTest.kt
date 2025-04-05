@@ -3,6 +3,7 @@ package com.mad.interop
 import com.google.common.truth.Truth.assertThat
 import com.mad.dagger.factory.impl.MyJavaTypeAccessor
 import com.mad.feature.graph.FeatureEntryPointProvider
+import com.mad.inject.replaced.impl.ReplacementBindingAccessor
 import com.mad.interop.scopes.GraphHolder
 import com.mad.interop.scopes.attemptDaggerChildComponentCreation
 import com.mad.interop.scopes.createGraphInterop
@@ -49,5 +50,11 @@ class ContributedGraphTest {
 
     assertThat(javaTypeAccessor.myJavaType)
       .isEqualTo(javaTypeAccessor.myJavaTypeInjector.myJavaType)
+  }
+
+  @Test
+  fun `replaced binding's real type can be injected`() {
+    val appGraph = createGraphInterop<AppGraph>() as ReplacementBindingAccessor
+    assertThat(appGraph.replacementBinding().text()).isEqualTo("Original Text Replaced")
   }
 }
