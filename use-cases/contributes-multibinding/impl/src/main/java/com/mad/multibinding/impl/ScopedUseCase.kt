@@ -6,11 +6,11 @@ import com.mad.multibinding.UseCaseSpecificInterface
 import com.squareup.anvil.annotations.ContributesBinding
 import com.squareup.anvil.annotations.ContributesMultibinding
 import com.squareup.anvil.annotations.ContributesTo
+import com.squareup.anvil.annotations.optional.ForScope
 import com.squareup.anvil.annotations.optional.SingleIn
 import javax.inject.Inject
 
-// Disabling for now until use case is supported by Metro
-// @ForScope(AppScope::class)
+@ForScope(AppScope::class)
 @SingleIn(AppScope::class)
 @ContributesMultibinding(AppScope::class, boundType = Scoped::class)
 @ContributesBinding(

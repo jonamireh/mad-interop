@@ -3,12 +3,11 @@ package com.mad.inject.replaced.impl
 import com.mad.inject.replaced.BindingToReplace
 import com.mad.inject.replaced.RealBindingToReplace
 import com.mad.interop.scopes.AppScope
+import com.squareup.anvil.annotations.ContributesBinding
 import com.squareup.anvil.annotations.ContributesTo
 import javax.inject.Inject
 
-// This use case currently fails compilation with a duplicate binding error, commenting out
-// Contribution to allow other tests to pass
-// @ContributesBinding(AppScope::class, replaces = [BindingToReplace::class])
+@ContributesBinding(AppScope::class, replaces = [RealBindingToReplace::class])
 class ReplacementBinding @Inject constructor(
   private val bindingToReplace: RealBindingToReplace,
 ) : BindingToReplace {
