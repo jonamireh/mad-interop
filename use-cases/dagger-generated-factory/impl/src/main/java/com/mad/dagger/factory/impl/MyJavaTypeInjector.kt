@@ -6,7 +6,7 @@ import com.squareup.anvil.annotations.ContributesTo
 import javax.inject.Inject
 
 class MyJavaTypeInjector @Inject constructor(
-  val myJavaType: MyJavaType
+  val myJavaType: MyJavaType,
 )
 
 @ContributesTo(AppScope::class)

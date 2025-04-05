@@ -12,7 +12,7 @@ import javax.inject.Inject
 class RealFeatureEntryPoint @Inject constructor() : FeatureEntryPoint {
   override fun startFeature(): String {
     val contributedFeatureGraph = attemptDaggerChildComponentCreation<ContributedFeatureGraph>(
-      GraphHolder.loggedInGraph!!
+      GraphHolder.loggedInGraph!!,
     )!!
     return contributedFeatureGraph.contributedFeature().print()
   }

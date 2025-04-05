@@ -4,7 +4,7 @@ pluginManagement {
     google()
     mavenCentral()
     mavenLocal()
-    //https://oss.sonatype.org/content/repositories/snapshots/dev/zacsweers/metro/
+    // https://oss.sonatype.org/content/repositories/snapshots/dev/zacsweers/metro/
     maven("https://oss.sonatype.org/content/repositories/snapshots")
     gradlePluginPortal()
   }
@@ -30,3 +30,5 @@ include(":use-cases:contributes-multibinding:public")
 include(":use-cases:contributes-multibinding:impl")
 include(":use-cases:dagger-generated-factory:public")
 include(":use-cases:dagger-generated-factory:impl")
+include(":use-cases:inject-replaced-contribution:public")
+include(":use-cases:inject-replaced-contribution:impl")

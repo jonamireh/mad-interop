@@ -6,7 +6,6 @@ import com.mad.multibinding.UseCaseSpecificInterface
 import com.squareup.anvil.annotations.ContributesBinding
 import com.squareup.anvil.annotations.ContributesMultibinding
 import com.squareup.anvil.annotations.ContributesTo
-import com.squareup.anvil.annotations.optional.ForScope
 import com.squareup.anvil.annotations.optional.SingleIn
 import javax.inject.Inject
 
@@ -17,7 +16,7 @@ import javax.inject.Inject
 @ContributesBinding(
   AppScope::class,
   boundType = UseCaseSpecificInterface::class,
-  ignoreQualifier = true
+  ignoreQualifier = true,
 )
 class ScopedUseCase @Inject constructor() : Scoped, UseCaseSpecificInterface
 

@@ -12,16 +12,19 @@ const val DAGGER_PREFIX = "Dagger"
 
 inline fun <reified T : Any> createGraphInterop(
   graphClass: KClass<T> = T::class,
-  vararg arguments: Any
+  vararg arguments: Any,
 ): T {
-  return attemptDaggerComponentCreation(graphClass, *arguments) ?: createMetroGraph(graphClass, *arguments)
+  return attemptDaggerComponentCreation(
+    graphClass,
+    *arguments,
+  ) ?: createMetroGraph(graphClass, *arguments)
 }
 
 // named attempt DaggerComponentCreation to allow for fallback to creating metro components when
 // project is compiled using metro.
 inline fun <reified T : Any> attemptDaggerComponentCreation(
   graphClass: KClass<T> = T::class,
-  vararg arguments: Any
+  vararg arguments: Any,
 ): T? {
   val daggerClass = attemptCreateClass(graphClass) ?: return null
   val factoryMethod = daggerClass.findFactory<T>(arguments.size)
@@ -55,7 +58,7 @@ fun <T : Any> createMetroGraph(graphClass: KClass<T>, vararg arguments: Any): T 
 inline fun <reified T : Any> attemptDaggerChildComponentCreation(
   parentComponentInstance: Any,
   childGraphClass: KClass<T> = T::class,
-  vararg arguments: Any
+  vararg arguments: Any,
 ): T? {
   val factoryMethod = parentComponentInstance::class.java.methods.firstOrNull { method ->
     childGraphClass.java.isAssignableFrom(method.returnType)
@@ -72,7 +75,7 @@ inline fun <reified T> Class<*>.findFactory(argCount: Int): Method {
   }
 }
 
-fun <T : Any> attemptCreateClass(graphClass: KClass<T>) : Class<out T>? {
+fun <T : Any> attemptCreateClass(graphClass: KClass<T>): Class<out T>? {
   val packageName = graphClass.java.`package`.name
   val simpleName = graphClass.simpleName
   val generatedDaggerClassName = "$packageName.$DAGGER_PREFIX$simpleName"

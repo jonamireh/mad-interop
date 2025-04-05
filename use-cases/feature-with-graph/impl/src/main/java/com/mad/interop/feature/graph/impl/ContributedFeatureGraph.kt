@@ -9,7 +9,7 @@ annotation class ContributedFeatureScope
 @SingleIn(ContributedFeatureScope::class)
 @ContributesSubcomponent(
   scope = ContributedFeatureScope::class,
-  parentScope = LoggedInScope::class
+  parentScope = LoggedInScope::class,
 )
 interface ContributedFeatureGraph {
   fun contributedFeature(): FeaturePrinter

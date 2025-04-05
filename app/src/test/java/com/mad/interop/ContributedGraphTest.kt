@@ -11,7 +11,6 @@ import com.mad.multibinding.impl.ScopedUseCaseAccessor
 import org.junit.Test
 
 class ContributedGraphTest {
-
   @Test
   fun `app graph can be built`() {
     val appGraph = createGraphInterop<AppGraph>()
@@ -32,7 +31,7 @@ class ContributedGraphTest {
   fun `contributed graph can be created via public api`() {
     GraphHolder.appGraph = createGraphInterop<AppGraph>()
     GraphHolder.loggedInGraph = attemptDaggerChildComponentCreation<LoggedInGraph>(
-      GraphHolder.appGraph!!
+      GraphHolder.appGraph!!,
     )
 
     // Referencing only types in feature-with-graph/public to create ContributedFeatureGraph
