@@ -1,7 +1,7 @@
 package com.mad.multibinding.impl
 
 import com.mad.interop.scopes.AppScope
-import com.mad.multibinding.Scoped
+import com.mad.interop.scopes.Scoped
 import com.squareup.anvil.annotations.ContributesTo
 import com.squareup.anvil.annotations.optional.ForScope
 import com.squareup.anvil.annotations.optional.SingleIn
