@@ -32,9 +32,9 @@ class ContributedGraphTest {
   @Test
   fun `contributed graph can be created via public api`() {
     GraphHolder.appGraph = createGraphInterop<AppGraph>()
-    GraphHolder.loggedInGraph = attemptDaggerChildComponentCreation<LoggedInGraph>(
+    GraphHolder.loggedInGraph = attemptDaggerChildComponentCreation<LoggedInGraph.Factory>(
       GraphHolder.appGraph!!,
-    )
+    )!!.create()
 
     // Referencing only types in feature-with-graph/public to create ContributedFeatureGraph
     val contributedGraph = GraphHolder.loggedInGraph<FeatureEntryPointProvider>()

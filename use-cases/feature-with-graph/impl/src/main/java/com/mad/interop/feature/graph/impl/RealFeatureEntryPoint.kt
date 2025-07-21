@@ -11,10 +11,11 @@ import javax.inject.Inject
 @ContributesBinding(LoggedInScope::class)
 class RealFeatureEntryPoint @Inject constructor() : FeatureEntryPoint {
   override fun startFeature(): String {
-    val contributedFeatureGraph = attemptDaggerChildComponentCreation<ContributedFeatureGraph>(
-      GraphHolder.loggedInGraph!!,
-    )!!
-    return contributedFeatureGraph.contributedFeature().print()
+    val contributedFeatureGraph =
+      attemptDaggerChildComponentCreation<ContributedFeatureGraph.Factory>(
+        GraphHolder.loggedInGraph!!,
+      )!!
+    return contributedFeatureGraph.create().contributedFeature().print()
   }
 }
 
