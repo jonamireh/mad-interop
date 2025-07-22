@@ -77,7 +77,11 @@ public class MyJavaType {
 
 <div style="background-color: #2d2d2d; padding: 15px; border-radius: 5px; margin: 10px 0;">
 <details>
-<summary><strong>Feature with Graph</strong> (❌)</summary>
+<summary><strong>Feature with Graph</strong> (⚠️)</summary>
+Interop for ContributesSubcomponent is not yet complete: https://github.com/ZacSweers/metro/issues/704. 
+However in the interim it is possible to double annotate contributed components AND their Factory using
+both Metro and Anvil annotations. Note in order for this to work you will have to configure includeAnvil
+interop manually. See convention plugin for further details.
 
 ```kotlin
 annotation class ContributedFeatureScope
@@ -87,7 +91,14 @@ annotation class ContributedFeatureScope
   scope = ContributedFeatureScope::class,
   parentScope = LoggedInScope::class,
 )
-interface ContributedFeatureGraph
+@ContributesGraphExtension(ContributedFeatureScope::class)
+interface ContributedFeatureGraph {
+  @ContributesSubcomponent.Factory
+  @ContributesGraphExtension.Factory(AppScope::class)
+  interface Factory {
+    fun create(): ContributedFeatureGraph
+  }
+}
 ```
 </details>
 </div>
@@ -106,6 +117,26 @@ class RealBindingToReplace @Inject constructor() : BindingToReplace
 class ReplacementBinding @Inject constructor(
   private val bindingToReplace: RealBindingToReplace,
 ) : BindingToReplace 
+```
+</details>
+</div>
+
+<div style="background-color: #2d2d2d; padding: 15px; border-radius: 5px; margin: 10px 0;">
+<details>
+<summary><strong>Included Modules</strong> (✅)</summary>
+
+```kotlin
+class IncludedModuleProvidedType()
+
+@Module
+object IncludedObjectModule {
+  @Provides
+  @SingleIn(AppScope::class)
+  fun provideIncludedModuleType(): IncludedModuleProvidedType = IncludedModuleProvidedType()
+}
+
+@MergeComponent(AppScope::class, modules = [IncludedObjectModule::class])
+interface AppGraph
 ```
 </details>
 </div>
