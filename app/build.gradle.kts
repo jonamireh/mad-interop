@@ -8,6 +8,7 @@ dependencies {
   implementation(project(":use-cases:contributed-module:public"))
   implementation(project(":use-cases:contributes-multibinding:impl"))
   implementation(project(":use-cases:dagger-generated-factory:impl"))
+  implementation(project(":use-cases:dagger-module-inclusion"))
   implementation(project(":use-cases:inject-replaced-contribution:impl"))
 
   testImplementation(libs.junit)

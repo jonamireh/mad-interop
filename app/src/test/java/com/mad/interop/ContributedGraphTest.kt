@@ -64,4 +64,11 @@ class ContributedGraphTest {
     val appGraph = createGraphInterop<AppGraph>() as MyModuleProvidedTypeAccessor
     assertThat(appGraph.myModuleProvidedType()).isEqualTo(appGraph.realMyModuleProvidedType())
   }
+
+  @Test
+  fun `scoping of types included via module interop is maintained`() {
+    val appGraph = createGraphInterop<AppGraph>()
+    assertThat(appGraph.includedModuleTypeAccessor())
+      .isEqualTo(appGraph.includedModuleTypeAccessor())
+  }
 }
