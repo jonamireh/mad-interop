@@ -1,5 +1,6 @@
 package com.mad.interop
 
+import com.google.common.truth.Truth.assertThat
 import com.mad.interop.scopes.attemptDaggerChildComponentCreation
 import com.mad.interop.scopes.createGraphInterop
 import org.junit.Test
@@ -13,7 +14,7 @@ class ContributedGraphTest {
       appGraph,
     )!!.create()
 
-    (appGraph as AppDependencyConsumerAccessor).appConsumer.doWork()
-    (loggedInGraph as LoggedInDependencyConsumerAccessor).loggedInConsumer.doWork()
+    assertThat((appGraph as AppDependencyConsumerAccessor).appConsumer.doWork()).isEqualTo("AppScope")
+    assertThat((loggedInGraph as LoggedInDependencyConsumerAccessor).loggedInConsumer.doWork()).isEqualTo("LoggedInScope")
   }
 }

@@ -8,8 +8,8 @@ import dagger.Module
 import dagger.Provides
 
 open class RealDependency(private val qualifier: String) : Dependency {
-  override fun doWork() {
-    println("$qualifier Dependency")
+  override fun doWork(): String {
+    return qualifier
   }
 }
 
@@ -26,5 +26,5 @@ object AppDependencyModule {
 object LoggedInDependencyModule {
   @Provides
   @ForScope(LoggedInScope::class)
-  fun provideLoggedInDependency(): Dependency = RealDependency("LoggedIn")
+  fun provideLoggedInDependency(): Dependency = RealDependency("LoggedInScope")
 }

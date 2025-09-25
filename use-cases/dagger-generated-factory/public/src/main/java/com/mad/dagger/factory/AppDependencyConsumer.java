@@ -15,7 +15,7 @@ public class AppDependencyConsumer {
     this.mQualifiedDependency = qualifierDependency;
   }
 
-  public void doWork() {
-    mQualifiedDependency.doWork();
+  public String doWork() {
+    return mQualifiedDependency.doWork();
   }
 }
