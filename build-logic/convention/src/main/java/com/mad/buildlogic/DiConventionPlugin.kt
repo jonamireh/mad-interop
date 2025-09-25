@@ -4,6 +4,8 @@ import dev.zacsweers.metro.gradle.MetroPluginExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.logging.LogLevel
+import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 
@@ -36,18 +38,18 @@ class DiConventionPlugin : Plugin<Project> {
           "implementation"(libs.findLibrary("anvil-annotations").get())
           "implementation"(libs.findLibrary("anvil-annotations-optional").get())
         }
-        val metro = extensions.getByType<MetroPluginExtension>()
-        metro.interop.enableDaggerRuntimeInterop.set(true)
-        metro.interop.includeJavax()
-        metro.interop.includeDagger()
-        metro.interop.run {
-          enableDaggerAnvilInterop.set(true)
 
-          graph.add("com/squareup/anvil/annotations/MergeComponent")
-          graphFactory.add("com/squareup/anvil/annotations/MergeComponent.Factory")
-          contributesTo.add("com/squareup/anvil/annotations/ContributesTo")
-          contributesBinding.add("com/squareup/anvil/annotations/ContributesBinding")
-          contributesIntoSet.add("com/squareup/anvil/annotations/ContributesMultibinding")
+        configure<MetroPluginExtension> {
+          debug.set(target.logging.level == LogLevel.DEBUG)
+          reportsDestination.set(layout.buildDirectory.dir("reports/metro"))
+          transformProvidersToPrivate.set(false)
+          interop {
+            includeDagger(includeJakarta = false)
+            includeAnvil(includeKotlinInjectAnvil = false)
+            // Only in Anvil-KSP
+            graphExtensionFactory.add("com/squareup/anvil/annotations/MergeSubcomponent.Factory")
+            graphExtensionFactory.add("com/squareup/anvil/annotations/ContributesSubcomponent.Factory")
+          }
         }
       }
     }

@@ -7,7 +7,7 @@ import com.mad.interop.scopes.LoggedInScope
 import com.squareup.anvil.annotations.ContributesSubcomponent
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.optional.SingleIn
-import dev.zacsweers.metro.ContributesGraphExtension
+import dev.zacsweers.metro.GraphExtension
 
 @SingleIn(AppScope::class)
 @MergeComponent(AppScope::class, modules = [IncludedObjectModule::class])
@@ -17,11 +17,11 @@ interface AppGraph {
 
 @SingleIn(LoggedInScope::class)
 @ContributesSubcomponent(LoggedInScope::class, parentScope = AppScope::class)
-@ContributesGraphExtension(LoggedInScope::class, isExtendable = true)
+@GraphExtension(LoggedInScope::class)
 interface LoggedInGraph {
 
   @ContributesSubcomponent.Factory
-  @ContributesGraphExtension.Factory(AppScope::class)
+  @GraphExtension.Factory
   interface Factory {
     fun create(): LoggedInGraph
   }
