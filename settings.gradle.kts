@@ -24,6 +24,8 @@ dependencyResolutionManagement {
 rootProject.name = "mad-interop"
 include(":app")
 include(":scopes:public")
+include(":common:public")
+include(":common:impl")
 include(":use-cases:feature-with-graph:public")
 include(":use-cases:feature-with-graph:impl")
 include(":use-cases:contributed-module:public")

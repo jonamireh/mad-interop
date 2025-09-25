@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+  implementation(project(":common:public"))
   annotationProcessor(libs.dagger.compiler)
   implementation(libs.dagger)
   implementation(libs.anvil.annotations.optional)

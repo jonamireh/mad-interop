@@ -16,6 +16,7 @@ autoServiceKsp = "1.2.0"
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 metro-runtime = { module = "dev.zacsweers.metro:runtime-jvm", version.ref = "metro" }
+metro-compiler = { module = "dev.zacsweers.metro:compiler", version.ref = "metro" }
 dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
 dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
 anvil-annotations = { group = "com.squareup.anvil", name = "annotations", version.ref = "anvil" }
