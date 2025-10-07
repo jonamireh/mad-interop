@@ -1,5 +1,7 @@
 package com.mad.interop
 
+import com.example.Dependency
+import com.example.PresenterImpl
 import com.mad.direct.module.IncludedModuleProvidedType
 import com.mad.direct.module.IncludedObjectModule
 import com.mad.interop.scopes.AppScope
@@ -12,6 +14,9 @@ import dev.zacsweers.metro.GraphExtension
 @SingleIn(AppScope::class)
 @MergeComponent(AppScope::class, modules = [IncludedObjectModule::class])
 interface AppGraph {
+  val dependency: Dependency
+
+  val presenterImpl: PresenterImpl
   fun includedModuleTypeAccessor(): IncludedModuleProvidedType
 }
 
