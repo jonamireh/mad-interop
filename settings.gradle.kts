@@ -4,8 +4,7 @@ pluginManagement {
     google()
     mavenCentral()
     mavenLocal()
-    // https://oss.sonatype.org/content/repositories/snapshots/dev/zacsweers/metro/
-    maven("https://oss.sonatype.org/content/repositories/snapshots")
+    maven("https://central.sonatype.com/repository/maven-snapshots")
     gradlePluginPortal()
   }
 }
@@ -17,7 +16,7 @@ dependencyResolutionManagement {
     google()
     mavenLocal()
     mavenCentral()
-    maven("https://oss.sonatype.org/content/repositories/snapshots")
+    maven("https://central.sonatype.com/repository/maven-snapshots")
   }
 }
 
