@@ -14,8 +14,6 @@ import dev.zacsweers.metro.GraphExtension
 @SingleIn(AppScope::class)
 @MergeComponent(AppScope::class, modules = [IncludedObjectModule::class])
 interface AppGraph {
-  val dependency: Dependency
-
   val presenterImpl: PresenterImpl
   fun includedModuleTypeAccessor(): IncludedModuleProvidedType
 }
