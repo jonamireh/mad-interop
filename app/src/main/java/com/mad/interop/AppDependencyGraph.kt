@@ -1,6 +1,5 @@
 package com.mad.interop
 
-import com.example.Dependency
 import com.example.PresenterImpl
 import com.mad.direct.module.IncludedModuleProvidedType
 import com.mad.direct.module.IncludedObjectModule
