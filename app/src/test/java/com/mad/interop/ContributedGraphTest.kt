@@ -34,7 +34,7 @@ class ContributedGraphTest {
     GraphHolder.appGraph = createGraphInterop<AppGraph>()
     GraphHolder.loggedInGraph = attemptDaggerChildComponentCreation<LoggedInGraph.Factory>(
       GraphHolder.appGraph!!,
-    )!!.create()
+    )!!.create("Jon")
 
     // Referencing only types in feature-with-graph/public to create ContributedFeatureGraph
     val contributedGraph = GraphHolder.loggedInGraph<FeatureEntryPointProvider>()
