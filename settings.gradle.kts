@@ -3,7 +3,6 @@ pluginManagement {
   repositories {
     google()
     mavenCentral()
-    mavenLocal()
     maven("https://central.sonatype.com/repository/maven-snapshots")
     gradlePluginPortal()
   }
@@ -14,7 +13,6 @@ plugins {
 dependencyResolutionManagement {
   repositories {
     google()
-    mavenLocal()
     mavenCentral()
     maven("https://central.sonatype.com/repository/maven-snapshots")
   }
@@ -23,14 +21,4 @@ dependencyResolutionManagement {
 rootProject.name = "mad-interop"
 include(":app")
 include(":scopes:public")
-include(":use-cases:feature-with-graph:public")
-include(":use-cases:feature-with-graph:impl")
-include(":use-cases:contributed-module:public")
-include(":use-cases:contributes-multibinding:public")
-include(":use-cases:contributes-multibinding:impl")
-include(":use-cases:dagger-generated-factory:public")
-include(":use-cases:dagger-generated-factory:impl")
-include(":use-cases:dagger-module-inclusion")
-include(":use-cases:inject-replaced-contribution:public")
-include(":use-cases:inject-replaced-contribution:impl")
-include(":custom-generators")
+include(":use-cases:dagger:impl")

@@ -4,12 +4,8 @@ plugins {
 }
 
 dependencies {
-  implementation(project(":use-cases:feature-with-graph:impl"))
-  implementation(project(":use-cases:contributed-module:public"))
-  implementation(project(":use-cases:contributes-multibinding:impl"))
-  implementation(project(":use-cases:dagger-generated-factory:impl"))
-  implementation(project(":use-cases:dagger-module-inclusion"))
-  implementation(project(":use-cases:inject-replaced-contribution:impl"))
+  implementation(project(":use-cases:dagger:impl"))
+  implementation(project(":scopes:public"))
 
   testImplementation(libs.junit)
   testImplementation(libs.truth)

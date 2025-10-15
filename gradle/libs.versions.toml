@@ -2,7 +2,7 @@
 kotlin = "2.2.20"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-metro = "0.6.10"
+metro = "0.7.0-SNAPSHOT"
 dagger = "2.56.1"
 anvil = "2.6.1"
 javax = "1"
