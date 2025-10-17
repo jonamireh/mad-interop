@@ -21,7 +21,7 @@ interface LoggedInGraph {
     fun create(): LoggedInGraph
   }
 
-  val multibindings: Set<Multibinding>
+  val multibindingsReference: MultibindingsReference
 
   @ContributesTo(AppScope::class)
   interface ParentBindings {
